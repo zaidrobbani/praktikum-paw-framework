@@ -1,19 +1,30 @@
+// authStore.ts
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import {LoginResponse} from "@/frontend/repository/auth/dto"
+
+type User = LoginResponse["user"];
 
 interface AuthState {
+  user: User | null;
   accessToken: string | null;
-  user: { id: string; email: string } | null;
-
+  setUser: (user: User | null) => void;
   setAccessToken: (token: string | null) => void;
-  setUser: (user: { id: string; email: string } | null) => void;
   logout: () => void;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-  accessToken: null,   // in-memory, tidak persist
-  user: null,
-
-  setAccessToken: (token) => set({ accessToken: token }),
-  setUser: (user) => set({ user }),
-  logout: () => set({ accessToken: null, user: null }),
-}));
+export const useAuthStore = create<AuthState>()(
+  persist(
+    (set) => ({
+      user: null,
+      accessToken: null,
+      setUser: (user) => set({ user }),
+      setAccessToken: (token) => set({ accessToken: token }),
+      logout: () => set({ user: null, accessToken: null }),
+    }),
+    {
+      name: "auth-storage", // key di localStorage
+      partialize: (state) => ({ accessToken: state.accessToken }), // simpan token saja, bukan user
+    }
+  )
+);

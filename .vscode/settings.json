@@ -33,5 +33,6 @@
   "tailwindCSS.experimental.classRegex": [["text-([a-z0-9-]+)", "text-([a-z0-9-]+)"]],
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "WillLuke.nextjs.hasPrompted": true
 }

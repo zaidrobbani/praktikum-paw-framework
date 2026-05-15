@@ -25,11 +25,15 @@ export const useAuthQuery = () => {
         setUser(result.data.user);
         queryClient.setQueryData(["auth-me"], result.data.user);
       }
+      return result;
     },
   });
 
+  const accessToken = useAuthStore.getState().accessToken;
+
   const getMeQuery = useQuery({
     queryKey: ["auth-me"],
+    enabled: !!accessToken,
     queryFn: async () => {
       const res = await authRepository.me();
       if (!res.success) throw res.error;

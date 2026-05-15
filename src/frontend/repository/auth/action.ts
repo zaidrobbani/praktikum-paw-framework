@@ -8,10 +8,10 @@ import {
 } from "./dto";
 import { tryCatch } from "@/frontend/lib/tryCatch";
 import { ActionResult } from "@/frontend/lib/ResponseResult";
-import useAxios from "@/frontend/hooks/useAxios";
+import Axios from "@/frontend/hooks/Axios";
 
 const AxiosHelper = () => {
-  return useAxios();
+  return Axios();
 };
 
 const { axiosPublic, axiosPrivate } = AxiosHelper();
