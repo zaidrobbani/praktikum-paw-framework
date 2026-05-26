@@ -42,7 +42,7 @@ export function ProductField<T extends keyof ProductFieldValues>({
           value={form[name]}
           onChange={(e) => setForm((p) => ({ ...p, [name]: e.target.value }))}
           placeholder={placeholder}
-          className={`w-full px-4 py-2.5 rounded-xl border text-sm resize-none focus:outline-none focus:ring-2 focus:ring-slate-900/20 transition ${
+          className={`w-full px-4 py-2.5 text-black rounded-xl border text-sm resize-none focus:outline-none focus:ring-2 focus:ring-slate-900/20 transition ${
             errors[name]
               ? "border-red-400 bg-red-50"
               : "border-slate-200 bg-slate-50 focus:bg-white"
@@ -54,7 +54,7 @@ export function ProductField<T extends keyof ProductFieldValues>({
           value={form[name]}
           onChange={(e) => setForm((p) => ({ ...p, [name]: e.target.value }))}
           placeholder={placeholder}
-          className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/20 transition ${
+          className={`w-full px-4 py-2.5 rounded-xl text-black border text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/20 transition ${
             errors[name]
               ? "border-red-400 bg-red-50"
               : "border-slate-200 bg-slate-50 focus:bg-white"

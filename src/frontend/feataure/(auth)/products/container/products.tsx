@@ -486,7 +486,7 @@ export default function ProductsContainer() {
       {/* Toast */}
       {toast && (
         <div
-          className={`fixed top-5 right-5 z-[100] flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-lg text-sm font-medium transition-all ${toast.type === "success" ? "bg-emerald-500 text-white" : "bg-red-500 text-white"}`}
+          className={`fixed top-5 right-5 z-100 flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-lg text-sm font-medium transition-all ${toast.type === "success" ? "bg-emerald-500 text-white" : "bg-red-500 text-white"}`}
         >
           {toast.type === "success" ? "✓" : "✕"} {toast.msg}
         </div>
