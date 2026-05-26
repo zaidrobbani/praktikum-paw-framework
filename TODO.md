@@ -1,5 +1,0 @@
-- [x] Read current auth hydrator + auth query flow (already inspected)
-- [x] Fix `/auth/me` query to only run when accessToken exists
-- [x] Add console logging for `getMeQuery.error` so we can see why data not returned
-- [x] Fix `AuthHydrator` to read correct response shape and log
-- [ ] Run TypeScript/Next build or lint (if available) to ensure changes compile
